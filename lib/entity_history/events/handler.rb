@@ -2,7 +2,8 @@
 
 module EntityHistory
   module Events
-    class EntityCreated < ::RailsEventStore::Event
+    class Handler
+      def call(event); end
     end
   end
 end

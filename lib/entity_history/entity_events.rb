@@ -17,21 +17,21 @@ module EntityHistory
 
     def notify_created_event
       publish_event(
-        event: EntityHistory::Events::EntityCreated.new(data: { attributes: attributes, changes: previous_changes }),
+        event: EntityHistory::Events::Created.new(data: { attributes: attributes, changes: previous_changes }),
         stream_name: "#{self.class.name}_#{id}"
       )
     end
 
     def notify_updated_event
       publish_event(
-        event: EntityHistory::Events::EntityUpdated.new(data: { attributes: attributes, changes: previous_changes }),
+        event: EntityHistory::Events::Updated.new(data: { attributes: attributes, changes: previous_changes }),
         stream_name: "#{self.class.name}_#{id}"
       )
     end
 
     def notify_destroyed_event
       publish_event(
-        event: EntityHistory::Events::EntityDestroyed.new(data: { attributes: attributes, changes: previous_changes }),
+        event: EntityHistory::Events::Destroyed.new(data: { attributes: attributes, changes: previous_changes }),
         stream_name: "#{self.class.name}_#{id}"
       )
     end

@@ -2,8 +2,7 @@
 
 module EntityHistory
   module Events
-    class EntityHandler
-      def call(event); end
+    class Updated < ::RailsEventStore::Event
     end
   end
 end

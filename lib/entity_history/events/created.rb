@@ -2,7 +2,7 @@
 
 module EntityHistory
   module Events
-    class EntityUpdated < ::RailsEventStore::Event
+    class Created < ::RailsEventStore::Event
     end
   end
 end

@@ -2,7 +2,7 @@
 
 module EntityHistory
   module Events
-    class EntityDestroyed < ::RailsEventStore::Event
+    class Destroyed < ::RailsEventStore::Event
     end
   end
 end
