@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "entity_history/version"
+require "rails"
 require "rails_event_store"
 require "entity_history/events/entity_created"
 require "entity_history/events/entity_updated"
