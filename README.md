@@ -5,16 +5,20 @@ TODO: Delete this and the text below, and describe your gem
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/entity_history`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
+Add to your `Gemfile`:
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+`gem "entity_history"`
 
-Install the gem and add to the application's Gemfile by executing:
+then, run installer:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+`rails generate entity_history:install` which copy `entity_history.rb`file into your `initializer` directory. ( please remember about restart your app server)
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+`rails generate entity_history:copy_migration` this task will copy required migration into your application
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+
+`rails db:migrate`
+
+...
 
 ## Usage
 
