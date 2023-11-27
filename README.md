@@ -20,7 +20,14 @@ then, run installer:
 
 ## Usage
 
-TODO: Write usage instructions here
+After successful database migration, the next step is to include into model prepared concern which allow track changes on specific entity as below
+
+```
+class Book
+  include EntityEvents
+
+end
+```
 
 ## Development
 
