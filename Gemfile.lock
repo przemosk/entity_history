@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     entity_history (0.1.0)
+      rails
       rails_event_store
 
 GEM
@@ -223,7 +224,6 @@ PLATFORMS
 DEPENDENCIES
   entity_history!
   generator_spec
-  rails
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop
