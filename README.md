@@ -2,21 +2,25 @@
 
 Simple tool for catching changes around model entity.
 
+## Background
+
+TODO
+
 ## Installation
 
-Add to your `Gemfile`:
+Add to your **Gemfile**:
 
-`gem "entity_history"`
+`gem "entity_history", git: "https://github.com/przemosk/entity_history"`
 
-then, run installer:
+run installer:
 
-`rails generate entity_history:install` which copy `entity_history.rb`file into your `initializer` directory. ( please remember about restart your app server)
+`rails generate entity_history:install`
+which copy `entity_history.rb`file into your `initializer` directory. ( please remember about restart your app server)
 
-`rails generate entity_history:copy_migration` this task will copy required migration into your application
+copy migration into your app:`rails generate entity_history:copy_migration`
 
+run migration: `rails db:migrate`
 
-`rails db:migrate`
-...
 
 ## Usage
 

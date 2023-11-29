@@ -3,7 +3,9 @@
 module EntityHistory
   module Events
     class Handler
-      def call(event); end
+      def call(event)
+        # TODO: catch erros, manage events
+      end
     end
   end
 end
