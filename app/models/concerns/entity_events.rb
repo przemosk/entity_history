@@ -10,8 +10,6 @@ module EntityEvents
     after_commit :notify_destroyed_event, on: :destroy, prepend: true
   end
 
-  def log_collection(entity_id); end
-
   private
 
   def notify_created_event
