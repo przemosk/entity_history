@@ -26,6 +26,10 @@ After successful database migration, the next step is to include into model prep
 class Book
   include EntityEvents
 
+  # or you can use mehthod
+
+  log_entity_history
+
 end
 ```
 
