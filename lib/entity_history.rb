@@ -23,8 +23,11 @@ module EntityHistory
       after_commit :notify_updated_event, on: :update
       after_commit :notify_destroyed_event, on: :destroy, prepend: true
     end
+  end
 
-    def display_entity_history(entity_id); end
+
+  def display_entity_history
+    event_store.read.stream("#{self.class.name}_#{self.id}").to_a
   end
 
   private
