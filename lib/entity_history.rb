@@ -30,16 +30,7 @@ module EntityHistory
   end
 
   def display_entity_history
-    # TODO: replace below code with serializer: serialized_stream(collection: [])
-
-    event_store.read.stream(stream_label).to_a.map do |item|
-      {
-        action: item.class.name,
-        event_id: item.event_id,
-        attributes: item.data[:attributes],
-        changes: item.data[:changes]
-      }
-    end
+    serialized_stream(collection: event_store.read.stream(stream_label).to_a)
   end
 
   private
@@ -68,6 +59,14 @@ module EntityHistory
 
   def serialized_stream(collection: [])
     # TODO: adjust serializer class EntityHistorySerializer, consider pass by configuration for flexibility
+    collection.map do |item|
+      {
+        action: item.class.name,
+        event_id: item.event_id,
+        attributes: item.data[:attributes],
+        changes: item.data[:changes]
+      }
+    end
   end
 
   def publish_event(event:)

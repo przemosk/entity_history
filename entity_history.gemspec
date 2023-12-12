@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Przemek Kosakowski (przemosk)"]
   spec.email = ["p.kosakowski@gmail.com"]
 
-  spec.summary = "Write a short summary, because RubyGems requires one."
+  spec.summary = "This is a tool that will help you keep track of changes related to your models."
   spec.description = "Write a longer description or delete this line."
   spec.homepage = "http://github.com/przemosk"
   spec.license = "MIT"
@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["rubygems_mfa_required"] = "true"
   # spec.metadata["source_code_uri"] = "Put your gem's public repo URL here."
   # spec.metadata["changelog_uri"] = "Put your gem's CHANGELOG.md URL here."
 
