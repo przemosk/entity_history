@@ -2,7 +2,9 @@
 
 module EntityHistory
   class InstallGenerator < Rails::Generators::Base
+    # rubocop:disable Style/ExpandPathArguments
     source_root File.expand_path("../../templates", __FILE__)
+    # rubocop:enable Style/ExpandPathArguments
 
     desc "Creates a EntityHistory initializer in your application."
 

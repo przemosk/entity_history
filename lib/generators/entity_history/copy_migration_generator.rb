@@ -3,7 +3,9 @@
 module EntityHistory
   class CopyMigrationGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
+    # rubocop:disable Style/ExpandPathArguments
     source_root File.expand_path("../../templates", __FILE__)
+    # rubocop:enable Style/ExpandPathArguments
 
     desc "Copy required database migration into Rails application"
 

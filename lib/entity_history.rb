@@ -7,7 +7,8 @@ require "entity_history/events/created"
 require "entity_history/events/updated"
 require "entity_history/events/destroyed"
 require "entity_history/events/handler"
-require_relative "../app/models/concerns/entity_events" # remove
+require "entity_history/serializers/entity_history_serializer"
+require_relative "../app/models/concerns/entity_events" # TODO: remove and disable in doc
 
 module EntityHistory
   extend ActiveSupport::Concern
@@ -23,10 +24,23 @@ module EntityHistory
       after_commit :notify_updated_event, on: :update
       after_commit :notify_destroyed_event, on: :destroy, prepend: true
     end
+
+    def find_destroyed_entity(entity_id); end
+
+    def restore_entity(attributes); end
   end
 
   def display_entity_history
-    event_store.read.stream(stream_label).to_a
+    # TODO: replace below code with serializer: serialized_stream(collection: [])
+
+    event_store.read.stream(stream_label).to_a.map do |item|
+      {
+        action: item.class.name,
+        event_id: item.event_id,
+        attributes: item.data[:attributes],
+        changes: item.data[:changes]
+      }
+    end
   end
 
   private
@@ -49,6 +63,14 @@ module EntityHistory
     )
   end
 
+  def allowed_attributes
+    # TODO: list attributes which should be tracked, consider pass by configuration for flexibility
+  end
+
+  def serialized_stream(collection: [])
+    # TODO: adjust serializer class EntityHistorySerializer, consider pass by configuration for flexibility
+  end
+
   def publish_event(event:)
     event_store.publish(event, stream_name: stream_label)
   end
@@ -62,4 +84,4 @@ module EntityHistory
   end
 end
 
-ActiveRecord::Base.prepend EntityHistory
+ActiveRecord::Base.include EntityHistory
