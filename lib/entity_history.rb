@@ -8,7 +8,6 @@ require "entity_history/events/updated"
 require "entity_history/events/destroyed"
 require "entity_history/events/handler"
 require "entity_history/serializers/entity_history_serializer"
-require_relative "../app/models/concerns/entity_events" # TODO: remove and disable in doc
 
 module EntityHistory
   extend ActiveSupport::Concern

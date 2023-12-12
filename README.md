@@ -24,18 +24,18 @@ run migration: `rails db:migrate`
 
 ## Usage
 
-After successful database migration, the next step is to include into model prepared concern which allow track changes on specific entity as below
+After successful database migration, the next step is to use in your model method `log_entity_history` as below:
 
 ```
 class Book
-  include EntityEvents
-
-  # or you can use mehthod
-
   log_entity_history
 
 end
 ```
+
+## Configuration
+
+TODO
 
 ## Development
 
