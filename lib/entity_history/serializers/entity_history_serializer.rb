@@ -1,7 +1,26 @@
 # frozen_string_literal: true
 
-require "rails"
+module EntityHistory
+  module Serializers
+    class EntityHistorySerializer
+      def initialize(collection: [])
+        @collection = collection
+      end
 
-class EntityHistorySerializer
-  include ActiveModel::Serialization
+      def serializable_hash
+        collection.map do |item|
+          {
+            action: item.class.name,
+            event_id: item.event_id,
+            attributes: item.data[:attributes],
+            changes: item.data[:changes]
+          }
+        end
+      end
+
+      private
+
+      attr_reader :collection
+    end
+  end
 end

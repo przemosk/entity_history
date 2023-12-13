@@ -1,6 +1,6 @@
 # EntityHistory
 
-Simple tool for catching changes around model entity.
+This is a tool that will help you keep track of changes related to your models.
 
 ## Background
 

@@ -58,15 +58,8 @@ module EntityHistory
   end
 
   def serialized_stream(collection: [])
-    # TODO: adjust serializer class EntityHistorySerializer, consider pass by configuration for flexibility
-    collection.map do |item|
-      {
-        action: item.class.name,
-        event_id: item.event_id,
-        attributes: item.data[:attributes],
-        changes: item.data[:changes]
-      }
-    end
+    # TODO: consider pass by configuration for flexibility
+    EntityHistory::Serializers::EntityHistorySerializer.new(collection: collection).serializable_hash
   end
 
   def publish_event(event:)
