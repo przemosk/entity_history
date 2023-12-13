@@ -24,13 +24,13 @@ module EntityHistory
       after_commit :notify_destroyed_event, on: :destroy, prepend: true
     end
 
-    def find_destroyed_entity(entity_id); end
+    def find_destroyed_entity(entity_id:); end
 
-    def restore_entity(attributes); end
+    def restore_entity(attributes: {}); end
   end
 
   def display_entity_history
-    serialized_stream(collection: event_store.read.stream(stream_label).to_a)
+    serialized_entity_stream(collection: event_store.read.stream(stream_label).to_a)
   end
 
   private
@@ -57,7 +57,7 @@ module EntityHistory
     # TODO: list attributes which should be tracked, consider pass by configuration for flexibility
   end
 
-  def serialized_stream(collection: [])
+  def serialized_entity_stream(collection: [])
     # TODO: consider pass by configuration for flexibility
     EntityHistory::Serializers::EntityHistorySerializer.new(collection: collection).serializable_hash
   end

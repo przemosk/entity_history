@@ -35,6 +35,31 @@ end
 
 ## Configuration
 
+#### EntityHistorySerializer
+
+##### Default entity history entry log:
+
+```
+ {
+   :action=>"update",
+   :event_id=>"a39c837b-d443-4a62-898b-ca2d049d958f",
+   :attributes=>
+     {
+       "id"=>24,
+       "title"=>"Some Cool Novel Title",
+       "author"=>"Tom Jones",
+       "isbn"=>"TJ7838383",
+       "created_at"=>Thu, 30 Nov 2023 13:26:34.376937000 UTC +00:00,
+       "updated_at"=>Tue, 12 Dec 2023 15:34:00.784779000 UTC +00:00
+     },
+   :changes=>
+     [
+       {"isbn"=>{:from=>nil, :to=>"7838383"}},
+       {"updated_at"=>{:from=>Tue, 12 Dec 2023 10:14:35.343564000 UTC +00:00, :to=>Tue, 12 Dec 2023 15:34:00.784779000 UTC +00:00}}
+     ]
+  }
+```
+
 TODO
 
 ## Development
