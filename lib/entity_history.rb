@@ -29,8 +29,8 @@ module EntityHistory
     def restore_entity(attributes: {}); end
   end
 
-  def display_entity_history
-    serialized_entity_stream(collection: event_store.read.stream(stream_label).to_a)
+  def display_entity_history(**opts)
+    serialized_entity_stream(collection: event_store.read.stream(stream_label).to_a, **opts)
   end
 
   private
@@ -57,8 +57,10 @@ module EntityHistory
     # TODO: list attributes which should be tracked, consider pass by configuration for flexibility
   end
 
-  def serialized_entity_stream(collection: [])
+  def serialized_entity_stream(collection: [], **opts)
     # TODO: consider pass by configuration for flexibility
+    return collection if opts[:raw]
+
     EntityHistory::Serializers::EntityHistorySerializer.new(collection: collection).serializable_hash
   end
 
