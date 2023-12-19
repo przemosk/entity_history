@@ -11,4 +11,5 @@ gem "rubocop"
 group :test do
   gem "generator_spec"
   gem "rspec", "~> 3.0"
+  gem "rspec-rails"
 end

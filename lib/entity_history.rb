@@ -7,6 +7,7 @@ require "entity_history/events/created"
 require "entity_history/events/updated"
 require "entity_history/events/destroyed"
 require "entity_history/events/handler"
+require "entity_history/serializers/base_serializer"
 require "entity_history/serializers/entity_history_serializer"
 
 module EntityHistory
@@ -59,9 +60,7 @@ module EntityHistory
 
   def serialized_entity_stream(collection: [], **opts)
     # TODO: consider pass by configuration for flexibility
-    return collection if opts[:raw]
-
-    EntityHistory::Serializers::EntityHistorySerializer.new(collection: collection).serializable_hash
+    EntityHistory::Serializers::EntityHistorySerializer.new(collection: collection, options: opts).serializable_hash
   end
 
   def publish_event(event:)

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "entity_history"
+require "rspec"
+require "rspec-rails"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -8,6 +10,8 @@ RSpec.configure do |config|
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
+
+  # config.autoload_paths += %W(#{config.root}/serializers)
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
