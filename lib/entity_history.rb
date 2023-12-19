@@ -3,6 +3,7 @@
 require_relative "entity_history/version"
 require "rails"
 require "rails_event_store"
+require "entity_history/configuration"
 require "entity_history/events/created"
 require "entity_history/events/updated"
 require "entity_history/events/destroyed"
@@ -59,8 +60,7 @@ module EntityHistory
   end
 
   def serialized_entity_stream(collection: [], **opts)
-    # TODO: consider pass by configuration for flexibility
-    EntityHistory::Serializers::EntityHistorySerializer.new(collection: collection, options: opts).serializable_hash
+    EntityHistory::Configuration.default_serializer_klass.new(collection: collection, options: opts).serializable_hash
   end
 
   def publish_event(event:)

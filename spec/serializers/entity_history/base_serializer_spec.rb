@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe EntityHistory::Serializers::EntityHistorySerializer, type: :serializer do
+RSpec.describe EntityHistory::Serializers::BaseSerializer, type: :serializer do
   subject { described_class.new(collection: collection) }
 
   describe "#serializable_hash" do
