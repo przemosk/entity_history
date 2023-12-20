@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["p.kosakowski@gmail.com"]
 
   spec.summary = "This is a tool that will help you keep track of changes related to your models."
-  spec.description = "Write a longer description or delete this line."
+  spec.description = "This is a tool that will help you keep track of changes related to your models."
   spec.homepage = "http://github.com/przemosk"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["rubygems_mfa_required"] = "true"
-  # spec.metadata["source_code_uri"] = "Put your gem's public repo URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/przemosk/entity_history"
   # spec.metadata["changelog_uri"] = "Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.

@@ -10,16 +10,7 @@ module EntityHistory
       end
 
       def serializable_hash
-        return collection if options[:raw]
-
-        collection.map do |item|
-          {
-            action: display_action_name(item.class.name),
-            event_id: item.event_id,
-            attributes: item.data[:attributes],
-            changes: unfold_changes(item.data[:changes])
-          }
-        end
+        raise NotImplementedError
       end
 
       private
