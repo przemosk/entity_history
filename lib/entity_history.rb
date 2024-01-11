@@ -15,10 +15,6 @@ module EntityHistory
   extend ActiveSupport::Concern
   class Error < StandardError; end
 
-  def self.included(base)
-    base.extend ClassMethods
-  end
-
   module ClassMethods
     def log_entity_history
       after_commit :notify_created_event, on: :create
@@ -51,12 +47,13 @@ module EntityHistory
 
   def notify_destroyed_event
     publish_event(
-      event: EntityHistory::Events::Destroyed.new(data: { attributes: attributes, changes: previous_changes })
+      event: EntityHistory::Events::Destroyed.new(data: { attributes: attributes, changes: {} })
     )
   end
 
   def allowed_attributes
     # TODO: list attributes which should be tracked, consider pass by configuration for flexibility
+    # TODO: check STI case
   end
 
   def serialized_entity_stream(collection: [], **opts)
