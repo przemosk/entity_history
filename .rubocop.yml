@@ -16,3 +16,9 @@ Layout/LineLength:
 
 Style/Documentation:
   Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 100

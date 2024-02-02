@@ -5,13 +5,12 @@ require "rspec"
 require "rspec-rails"
 require "factory_bot_rails"
 require "ruby_event_store/rspec"
-
-require 'dummy/config/environment'
+require "dummy/config/environment"
 
 ActiveRecord::Migration.maintain_test_schema!
 
 ActiveRecord::Schema.verbose = false
-load 'dummy/db/schema.rb'
+load "dummy/db/schema.rb"
 
 FactoryBot.definition_file_paths = ["spec/factories"]
 

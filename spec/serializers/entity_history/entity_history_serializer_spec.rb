@@ -7,8 +7,8 @@ RSpec.describe EntityHistory::Serializers::EntityHistorySerializer, type: :seria
 
   describe "#serializable_hash" do
     let!(:book) { create(:book) }
-    let!(:create_history) { book.update!(title: "#{book.title}_#{rand(999..99999)}") }
-    let(:collection) do 
+    let!(:create_history) { book.update!(title: "#{book.title}_#{rand(999..9_999_999)}") }
+    let(:collection) do
       RailsEventStore::Client.new.read.stream("Book_#{book.id}").to_a
     end
 
