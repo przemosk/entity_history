@@ -3,7 +3,6 @@
 module EntityHistory
   module Serializers
     class BaseSerializer
-      # TODO: introduce serializer library
       def initialize(collection: [], options: {})
         @collection = collection
         @options = options

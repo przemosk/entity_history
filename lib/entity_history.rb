@@ -13,7 +13,6 @@ require "entity_history/serializers/entity_history_serializer"
 
 module EntityHistory
   extend ActiveSupport::Concern
-  class Error < StandardError; end
 
   module ClassMethods
     def log_entity_history
