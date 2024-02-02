@@ -21,12 +21,11 @@ copy migration into your app:`rails generate entity_history:copy_migration`
 
 run migration: `rails db:migrate`
 
-
 ## Usage
 
 After successful database migration, the next step is to use in your model method `log_entity_history` as below:
 
-```
+```ruby
 class Book
   log_entity_history
 
@@ -37,9 +36,9 @@ end
 
 #### EntityHistorySerializer
 
-##### Default entity history entry log:
+##### Default entity history entry log
 
-```
+```json
  {
    :action=>"update",
    :event_id=>"a39c837b-d443-4a62-898b-ca2d049d958f",
@@ -70,7 +69,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/entity_history. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/entity_history/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at <https://github.com/[USERNAME]/entity_history>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/entity_history/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 

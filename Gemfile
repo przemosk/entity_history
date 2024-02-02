@@ -7,9 +7,13 @@ gemspec
 
 gem "rake", "~> 13.0"
 gem "rubocop"
+gem "byebug"
+gem "pg"
 
 group :test do
   gem "generator_spec"
   gem "rspec", "~> 3.0"
   gem "rspec-rails"
+  gem "ruby_event_store-rspec"
+  gem 'factory_bot_rails'
 end
